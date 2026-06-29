@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>암사쪽갈비 불광점 - 인생 쪽갈비 전문점</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        amber: {
+                            50: '#fffbeb',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            900: '#78350f',
+                        },
+                        fire: {
+                            light: '#ff7a00',
+                            DEFAULT: '#e63946',
+                            dark: '#9b1c1c'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans overflow-x-hidden">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed top-0 left-0 w-full z-40 bg-gray-950/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-orange-600 to-red-600 flex items-center justify-center shadow-lg shadow-orange-600/20">
+                        <i class="fa-solid fa-fire text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">암사쪽갈비</span>
+                        <span class="text-xs block text-gray-400 tracking-widest -mt-1">불광점</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#about" class="text-gray-300 hover:text-orange-400 font-medium transition-colors">매장 소개</a>
+                    <a href="#menu" class="text-gray-300 hover:text-orange-400 font-medium transition-colors">대표 메뉴</a>
+                    <a href="#calculator" class="text-gray-300 hover:text-orange-400 font-medium transition-colors">견적 계산기</a>
+                    <a href="#guide" class="text-gray-300 hover:text-orange-400 font-medium transition-colors">맛있게 굽는 법</a>
+                    <a href="#reviews" class="text-gray-300 hover:text-orange-400 font-medium transition-colors">고객 후기</a>
+                </div>
+
+                <!-- Action Button -->
+                <div class="hidden md:block">
+                    <button onclick="openModal()" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold shadow-lg shadow-orange-600/30 transition-all duration-300 transform hover:scale-105 active:scale-95">
+                        <i class="fa-regular fa-calendar-check mr-2"></i>예약 및 문의
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-400 hover:text-white p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-950 border-b border-gray-800 transition-all duration-300">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 text-center">
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-900 hover:text-orange-400">매장 소개</a>
+                <a href="#menu" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-900 hover:text-orange-400">대표 메뉴</a>
+                <a href="#calculator" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-900 hover:text-orange-400">견적 계산기</a>
+                <a href="#guide" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-900 hover:text-orange-400">맛있게 굽는 법</a>
+                <a href="#reviews" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-900 hover:text-orange-400">고객 후기</a>
+                <button onclick="openModal()" class="w-11/12 mt-4 mx-auto block py-3 rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold">
+                    <i class="fa-regular fa-calendar-check mr-2"></i>예약 및 문의
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative pt-24 min-h-screen flex items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-950/40 via-gray-950 to-gray-950">
+        <!-- Fire Sparks Particle Effect Mockup Background -->
+        <div class="absolute inset-0 z-0 opacity-20 pointer-events-none bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1920&q=80'); filter: grayscale(50%) contrast(120%);"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/80 to-transparent z-1"></div>
+
+        <!-- Glowing Orange Aura behind Hero -->
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-orange-600/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+            <!-- Badge -->
+            <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-6 animate-pulse">
+                <i class="fa-solid fa-medal"></i> 불광동 1위 쪽갈비 맛집 · 웨이팅 보장 맛집
+            </span>
+
+            <!-- Main Heading -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8">
+                <span class="block text-gray-100 mb-2">불향 가득 뜯는 재미!</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-red-500">
+                    인생 암사쪽갈비 불광점
+                </span>
+            </h1>
+
+            <!-- Paragraph -->
+            <p class="max-w-2xl mx-auto text-base sm:text-xl text-gray-400 leading-relaxed mb-12">
+                정성이 담긴 참숯 100% 초벌구이로 기름기는 쏙 빼고 육즙은 완벽히 가뒀습니다.<br class="hidden sm:inline">
+                대포집의 아늑함과 빈틈없이 청결한 매장에서 특별한 미식을 경험하세요.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold text-lg shadow-lg shadow-orange-500/30 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-utensils"></i> 대표 메뉴 둘러보기
+                </a>
+                <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gray-900 hover:bg-gray-800 border border-gray-700 hover:border-gray-600 text-gray-200 font-bold text-lg transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-calculator text-amber-500"></i> 실시간 견적 내보기
+                </a>
+            </div>
+
+            <!-- Features Highlights -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 max-w-4xl mx-auto border-t border-gray-800/60 pt-10">
+                <div class="p-4 rounded-xl bg-gray-900/40 border border-gray-800/40">
+                    <div class="text-orange-500 text-2xl mb-1"><i class="fa-solid fa-fire-burner"></i></div>
+                    <div class="font-bold text-base text-gray-200">100% 초벌구이</div>
+                    <p class="text-xs text-gray-500 mt-1">테이블에서 3분이면 완성</p>
+                </div>
+                <div class="p-4 rounded-xl bg-gray-900/40 border border-gray-800/40">
+                    <div class="text-orange-500 text-2xl mb-1"><i class="fa-solid fa-piggy-bank"></i></div>
+                    <div class="font-bold text-base text-gray-200">프랑스산 최고급육</div>
+                    <p class="text-xs text-gray-500 mt-1">도톰한 갈빗살과 풍부한 육즙</p>
+                </div>
+                <div class="p-4 rounded-xl bg-gray-900/40 border border-gray-800/40">
+                    <div class="text-orange-500 text-2xl mb-1"><i class="fa-solid fa-hands-bubbles"></i></div>
+                    <div class="font-bold text-base text-gray-200">완벽한 위생청결</div>
+                    <p class="text-xs text-gray-500 mt-1">먼지 한 톨 없는 깔끔한 관리</p>
+                </div>
+                <div class="p-4 rounded-xl bg-gray-900/40 border border-gray-800/40">
+                    <div class="text-orange-500 text-2xl mb-1"><i class="fa-solid fa-gift"></i></div>
+                    <div class="font-bold text-base text-gray-200">웰컴 푸드 가득</div>
+                    <p class="text-xs text-gray-500 mt-1">계란찜+껍데기+감자 기본 서비스</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce-slow">
+            <a href="#about" class="text-gray-500 hover:text-white transition-colors">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 bg-gray-900/50 border-y border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">
+                    왜 '암사쪽갈비 불광점'일까요?
+                </h2>
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">
+                    한 번 맛보면 다시 찾을 수밖에 없는 불광역 먹자골목의 터줏대감. 차원이 다른 고집을 보여드립니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Visual Box (Mocking high-end vibe) -->
+                <div class="relative group rounded-3xl overflow-hidden border border-gray-800 shadow-2xl aspect-video lg:aspect-square bg-gradient-to-tr from-gray-950 to-gray-900 flex items-center justify-center p-8">
+                    <!-- Subtle Fire Grating graphic using Tailwind / SVG -->
+                    <div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-30" style="background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-orange-600/20 flex items-center justify-center mb-6 border border-orange-500/40">
+                            <i class="fa-solid fa-hourglass-start text-orange-400 text-3xl animate-pulse"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-2">정성스러운 초벌 시간</h4>
+                        <p class="text-gray-400 text-sm max-w-md mx-auto leading-relaxed">
+                            주문 즉시 매장 한 편에서 사장님이 정성 들여 참숯 향을 골고루 입혀 드립니다. 연기 걱정 없이, 편안한 대화와 훌륭한 고기 맛에만 집중해 보세요.
+                        </p>
+                        <div class="mt-6 flex justify-center gap-2">
+                            <span class="px-3 py-1 text-xs rounded-full bg-gray-800 text-gray-300 font-medium border border-gray-700">#잡내제로</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gray-800 text-gray-300 font-medium border border-gray-700">#참숯향가득</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-gray-800 text-gray-300 font-medium border border-gray-700">#최강편리성</span>
+                        </div>
+                    </div>
+                    <!-- Outer glows -->
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-orange-500/10 rounded-full blur-[40px]"></div>
+                </div>
+
+                <!-- Descriptive points -->
+                <div class="space-y-8">
+                    <!-- Point 1 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400">
+                            <i class="fa-solid fa-leaf text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-200">천연 재료의 기분 좋은 자극</h3>
+                            <p class="text-gray-400 mt-2 leading-relaxed">
+                                매운쪽갈비는 자극적인 인공 캡사이신을 일절 배제하고 과일과 고춧가루 등 천연 재료로만 조제하여 첫맛은 화끈하지만 속이 아프지 않은 완벽한 웰빙 매운맛을 고집합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Point 2 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400">
+                            <i class="fa-solid fa-sparkles text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-200">위생과 청결, 타협 없는 깐깐함</h3>
+                            <p class="text-gray-400 mt-2 leading-relaxed">
+                                등산객과 매장 이용객들이 입을 모아 극찬하는 요소입니다. 고기 기름때가 고이기 쉬운 대포집 분위기임에도 테이블, 후드, 수저통 하나까지 완벽하게 소독하고 매일 최상의 위생 상태를 자랑합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Point 3 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400">
+                            <i class="fa-solid fa-gift text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-200">본 메뉴를 위협하는 푸짐한 찬 구성</h3>
+                            <p class="text-gray-400 mt-2 leading-relaxed">
+                                자리에 앉자마자 촉촉하고 따뜻한 계란찜, 느끼함을 싹 비워줄 아삭한 백김치, 구이용 떡과 감자, 그리고 정성스레 초벌된 쫀득 돼지껍데기까지 풍성한 한 상이 기본으로 깔립니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section id="menu" class="py-24 bg-gray-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-orange-500 font-bold">The Authentic Flavors</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">최강의 매력으로 구성된 4가지 명품 시그니처</h2>
+                <p class="text-gray-400 mt-4 text-sm sm:text-base">오직 엄선된 프리미엄 원육과 특화 레시피만을 엄선해 선보이는 직관적인 한판 메뉴</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Menu Item 1 -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2.5 py-1 rounded bg-orange-500/10 text-orange-400 text-xs font-bold uppercase">Best</span>
+                            <span class="text-lg font-bold text-orange-500">18,000원</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">쪽갈비 (기본맛)</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">참숯 향을 깊이 머금어 씹는 순간 촉촉한 육즙과 불향이 고소하게 흘러넘치는 최고 존엄 대표 메뉴</p>
+                        <span class="text-xs text-gray-500 block"><i class="fa-solid fa-circle-check text-orange-500 mr-1"></i>350g 기준 / 프랑스산 최고급육</span>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="changeQty('jok', 1)" class="w-full py-2.5 rounded-lg bg-gray-800 hover:bg-orange-600 hover:text-white text-gray-300 font-semibold transition-colors text-sm flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-plus text-xs"></i> 견적 계산기에 추가
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2.5 py-1 rounded bg-red-500/10 text-red-400 text-xs font-bold uppercase">Signature</span>
+                            <span class="text-lg font-bold text-orange-500">18,000원</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">매운쪽갈비</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">중독성 극대화! 캡사이신 제로, 순수 청양초와 고춧가루 등 천연 양념으로 뒷맛까지 말끔히 당기는 감칠맛 매운 쪽갈비</p>
+                        <span class="text-xs text-gray-500 block"><i class="fa-solid fa-circle-check text-orange-500 mr-1"></i>350g 기준 / 중독성 강한 소스</span>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="changeQty('spicy', 1)" class="w-full py-2.5 rounded-lg bg-gray-800 hover:bg-orange-600 hover:text-white text-gray-300 font-semibold transition-colors text-sm flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-plus text-xs"></i> 견적 계산기에 추가
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2.5 py-1 rounded bg-gray-800 text-gray-400 text-xs font-bold uppercase">Add-on</span>
+                            <span class="text-lg font-bold text-orange-500">7,000원</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">돼지껍데기</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">서비스 제공 후 100% 추가 주문을 부르는 불광점 마스코트. 한 번 삶아 초벌하여 냄새는 완벽히 잡고 쫀득한 식감만 가득</p>
+                        <span class="text-xs text-gray-500 block"><i class="fa-solid fa-circle-check text-orange-500 mr-1"></i>국내산 150g / 완벽 초벌 완료</span>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="changeQty('skin', 1)" class="w-full py-2.5 rounded-lg bg-gray-800 hover:bg-orange-600 hover:text-white text-gray-300 font-semibold transition-colors text-sm flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-plus text-xs"></i> 견적 계산기에 추가
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4 -->
+                <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 text-xs font-bold uppercase">Perfect Side</span>
+                            <span class="text-lg font-bold text-orange-500">7,000원</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">김치짜글이</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">잘 익은 김치를 푸욱 끓여내 얼큰하고 녹진한 맛이 일품. 밥도둑인 동시에 소주잔을 절로 비우게 만드는 필살 술안주</p>
+                        <span class="text-xs text-gray-500 block"><i class="fa-solid fa-circle-check text-orange-500 mr-1"></i>두부와 고기가 가득한 찌개</span>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="changeQty('jjigae', 1)" class="w-full py-2.5 rounded-lg bg-gray-800 hover:bg-orange-600 hover:text-white text-gray-300 font-semibold transition-colors text-sm flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-plus text-xs"></i> 견적 계산기에 추가
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULATOR SECTION (Interactive Simulator) -->
+    <section id="calculator" class="py-24 bg-gray-900/60 border-y border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="px-3 py-1 text-xs rounded-full bg-orange-600/20 text-orange-400 font-bold border border-orange-500/30">실시간 주문 도우미</span>
+                <h2 class="text-3xl font-extrabold text-white mt-3">얼마나 주문할까요? 실시간 스마트 계산기</h2>
+                <p class="text-gray-400 mt-2 text-sm sm:text-base">인원수와 메뉴를 정하시면 총 견적과 제공되는 풍성한 서비스 구성을 직관적으로 체크해 드립니다.</p>
+            </div>
+
+            <!-- Simulator Card Container -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-gray-950 border border-gray-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+                <!-- Configurator (Left Side 7 Cols) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <h3 class="text-lg font-bold text-gray-200 border-b border-gray-800 pb-3 flex items-center justify-between">
+                        <span>메뉴 수량 선택</span>
+                        <button onclick="resetCalculator()" class="text-xs text-gray-500 hover:text-orange-400"><i class="fa-solid fa-arrows-rotate mr-1"></i>초기화</button>
+                    </h3>
+
+                    <!-- Jokgalbi Selector -->
+                    <div class="flex items-center justify-between py-2 border-b border-gray-900">
+                        <div>
+                            <span class="font-bold text-white block">쪽갈비 (기본)</span>
+                            <span class="text-xs text-gray-500">18,000원 / 350g</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="changeQty('jok', -1)" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-lg font-bold text-gray-200">-</button>
+                            <span id="qty-jok" class="w-8 text-center text-lg font-bold text-white">0</span>
+                            <button onclick="changeQty('jok', 1)" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-lg font-bold text-gray-200">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Spicy Jokgalbi Selector -->
+                    <div class="flex items-center justify-between py-2 border-b border-gray-900">
+                        <div>
+                            <span class="font-bold text-white block text-red-400">매운쪽갈비</span>
+                            <span class="text-xs text-gray-500">18,000원 / 350g</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="changeQty('spicy', -1)" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-lg font-bold text-gray-200">-</button>
+                            <span id="qty-spicy" class="w-8 text-center text-lg font-bold text-white">0</span>
+                            <button onclick="changeQty('spicy', 1)" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-lg font-bold text-gray-200">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Skin Selector -->
+                    <div class="flex items-center justify-between py-2 border-b border-gray-900">
+                        <div>
+                            <span class="font-bold text-white block">돼지껍데기 추가</span>
+                            <span class="text-xs text-gray-500">7,000원 / 150g</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="changeQty('skin', -1)" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-lg font-bold text-gray-200">-</button>
+                            <span id="qty-skin" class="w-8 text-center text-lg font-bold text-white">0</span>
+                            <button onclick="changeQty('skin', 1)" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-lg font-bold text-gray-200">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Jjigae Selector -->
+                    <div class="flex items-center justify-between py-2">
+                        <div>
+                            <span class="font-bold text-white block">김치짜글이</span>
+                            <span class="text-xs text-gray-500">7,000원</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="changeQty('jjigae', -1)" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-lg font-bold text-gray-200">-</button>
+                            <span id="qty-jjigae" class="w-8 text-center text-lg font-bold text-white">0</span>
+                            <button onclick="changeQty('jjigae', 1)" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-lg font-bold text-gray-200">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display Screen (Right Side 5 Cols) -->
+                <div class="lg:col-span-5 bg-gray-900 border border-gray-800 rounded-2xl p-6 flex flex-col justify-between shadow-inner">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">실시간 주문 집계</h4>
+                        <div class="space-y-2 mb-6">
+                            <div class="flex justify-between text-sm text-gray-400">
+                                <span>선택된 고기 총 중량:</span>
+                                <span class="font-bold text-gray-200" id="total-weight">0g</span>
+                            </div>
+                        </div>
+
+                        <!-- Gift Alert Box -->
+                        <div class="bg-gray-950/60 border border-orange-500/20 rounded-xl p-4 space-y-3 mb-6">
+                            <h5 class="text-xs font-bold text-orange-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-gift animate-bounce"></i> 무료 기본 제공 서비스 내역
+                            </h5>
+                            <ul class="text-xs text-gray-400 space-y-2">
+                                <li class="flex items-center justify-between opacity-50" id="bonus-egg">
+                                    <span>· 화산 폭발 계란찜 1뚝배기</span>
+                                    <span class="text-emerald-500 font-bold" id="status-egg">비활성 (주문필요)</span>
+                                </li>
+                                <li class="flex items-center justify-between opacity-50" id="bonus-skin">
+                                    <span>· 쫀득 맛보기 돼지껍데기 </span>
+                                    <span class="text-emerald-500 font-bold" id="status-skin">비활성 (주문필요)</span>
+                                </li>
+                                <li class="flex items-center justify-between opacity-50" id="bonus-veggie">
+                                    <span>· 구이용 떡 & 감자 플레이트</span>
+                                    <span class="text-emerald-500 font-bold" id="status-veggie">비활성 (주문필요)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Total Price Box -->
+                    <div class="border-t border-gray-800 pt-6">
+                        <div class="flex justify-between items-baseline mb-4">
+                            <span class="text-gray-400 font-medium">총 합계 금액</span>
+                            <span class="text-3xl font-extrabold text-orange-500" id="total-price">0원</span>
+                        </div>
+                        <button onclick="requestWithEstimates()" class="w-full py-4 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-black shadow-lg shadow-orange-500/20 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]">
+                            이 구성으로 예약 문의하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COOKING GUIDE SECTION -->
+    <section id="guide" class="py-24 bg-gray-950">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-orange-500 font-bold">Grilling Secret</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">태우는 것이 비법? 인생 쪽갈비 맛있게 굽는 3계명</h2>
+                <p class="text-gray-400 mt-4 text-sm sm:text-base">사장님이 보장하는 최상의 조건! 이 가이드에 충실하면 최고의 불맛을 온전히 뜯어내실 수 있습니다.</p>
+            </div>
+
+            <!-- Interactive Stepper -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <!-- Progress Line decoration (Only desktop) -->
+                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-1 bg-gradient-to-r from-orange-500/10 via-orange-500/50 to-orange-500/10 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 bg-gray-900 border border-gray-800 p-8 rounded-2xl flex flex-col items-center text-center shadow-lg hover:border-orange-500/30 transition-all duration-300 group">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-orange-500 to-red-600 flex items-center justify-center text-2xl font-black text-white shadow-lg group-hover:scale-110 transition-transform duration-300 mb-6">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">뼈를 무조건 아래로!</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        쪽갈비를 불판에 안착시킬 때, 절대 고기 살점을 불 쪽으로 올리지 마세요. <strong class="text-orange-400">오직 단단하고 두꺼운 갈비 뼈만 아래를 향하도록</strong> 수직으로 올려주셔야 합니다.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 bg-gray-900 border border-gray-800 p-8 rounded-2xl flex flex-col items-center text-center shadow-lg hover:border-orange-500/30 transition-all duration-300 group">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-orange-500 to-red-600 flex items-center justify-center text-2xl font-black text-white shadow-lg group-hover:scale-110 transition-transform duration-300 mb-6">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">전도열 원리로 고루 익히기</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        직접적인 화력으로 고기를 익히면 육즙이 가 마르고 살코기가 타버립니다. <strong class="text-orange-400">열전도가 높은 뼈를 태워가며 발생하는 열기</strong>로 뼈 위에 붙은 도톰한 살점을 속까지 밀도있게 완벽히 익히는 과학적인 원리입니다.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 bg-gray-900 border border-gray-800 p-8 rounded-2xl flex flex-col items-center text-center shadow-lg hover:border-orange-500/30 transition-all duration-300 group">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-orange-500 to-red-600 flex items-center justify-center text-2xl font-black text-white shadow-lg group-hover:scale-110 transition-transform duration-300 mb-6">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">뼈가 시커멓게 탈 때가 타이밍!</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        "어? 뼈가 완전히 탔는데?" 할 때가 최고로 완벽히 잘 익은 상태입니다. <strong class="text-orange-400">기본 쪽갈비는 그 타이밍에서 딱 2분, 매운 쪽갈비는 가볍게 1분</strong>만 가볍게 굴려주고 뜯으시면 육즙 폭발하는 천상의 고기 맛을 느낍니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pro-tip Callout -->
+            <div class="mt-12 bg-gradient-to-r from-orange-950/40 via-orange-900/10 to-transparent border border-orange-500/20 p-6 rounded-2xl flex flex-col sm:flex-row items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-orange-600/20 flex-shrink-0 flex items-center justify-center text-orange-400">
+                    <i class="fa-solid fa-lightbulb text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="text-base font-bold text-orange-400">초보자를 위한 맵찔이 꿀단지 조언!</h4>
+                    <p class="text-gray-400 text-sm mt-1 leading-relaxed">
+                        불광점 매운쪽갈비는 천연 재료만의 기분 좋은 매콤함이 아주 깔끔하지만, 혹시 매운 맛에 지나치게 약하시다면 <strong>기본 쪽갈비를 시키신 후 제공되는 특제 '매운 전용 소스'와 마법의 콩가루에 콕 찍어</strong> 조화롭게 번갈아 드셔보시길 적극 추천합니다!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews" class="py-24 bg-gray-900/40 border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 text-xs rounded-full bg-orange-600/20 text-orange-400 font-bold border border-orange-500/30">고객 리얼 보이스</span>
+                <h2 class="text-3xl font-extrabold text-white mt-3">방문객들이 증명하는 리얼 리뷰 평점 4.8</h2>
+                <p class="text-gray-400 mt-2 text-sm sm:text-base">네이버 영수증 리뷰와 등산 동호회, 동네 터줏대감들이 남긴 진솔하고 생생한 방문 이야기</p>
+            </div>
+
+            <!-- Review Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review Card 1 -->
+                <div class="bg-gray-950 border border-gray-800 p-6 sm:p-8 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition-colors">
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base italic">
+                        "기본찬으로 개별 소스랑 완벽한 백김치, 그리고 무려 뜨끈한 계란찜이 그냥 나와요. 쪽갈비와 함께 불판에 구워먹는 떡이랑 서비스 맛보기 껍데기는 메인 고기 익기 전 술안주로 완벽합니다. 대포집인데 먼지 한 톨 없이 깨끗해요!"
+                    </p>
+                    <div class="flex items-center gap-4 mt-8 pt-4 border-t border-gray-900">
+                        <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-orange-500 font-black">
+                            N
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">냠냠트립님</h4>
+                            <div class="flex text-amber-500 text-xs gap-0.5 mt-0.5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="bg-gray-950 border border-gray-800 p-6 sm:p-8 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition-colors">
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base italic">
+                        "불광동 먹자골목 3번째 시도 끝에 금요일 밤 드디어 성공했네요! 면장갑 위에 비닐장갑 이중으로 챙겨주셔서 뜨거운 고기 들고 편하게 뜯었어요. 고기는 확실히 수입 프랑스산이라 국내산보다 두툼하고 실함! 무조건 웨이팅 가치 있음."
+                    </p>
+                    <div class="flex items-center gap-4 mt-8 pt-4 border-t border-gray-900">
+                        <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-orange-500 font-black">
+                            J
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">잠못이루는밤님</h4>
+                            <div class="flex text-amber-500 text-xs gap-0.5 mt-0.5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="bg-gray-950 border border-gray-800 p-6 sm:p-8 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition-colors">
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base italic">
+                        "등산 후 단체 동호회 친구들이랑 오픈런했어요. 테이블이 금세 가득 찼는데 사장님이 서비스로 추가 껍데기도 주시고 너무 친절하셨어요. 뼈째 세워서 굽고 뼈가 아주 타면 먹는 꿀팁 전수받았는데 고기 냄새 없고 진짜 황홀했습니다."
+                    </p>
+                    <div class="flex items-center gap-4 mt-8 pt-4 border-t border-gray-900">
+                        <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-orange-500 font-black">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">문산홍도님</h4>
+                            <div class="flex text-amber-500 text-xs gap-0.5 mt-0.5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISIT INFO & LOCATION MAP -->
+    <section class="py-24 bg-gray-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                <!-- Details Card (Left 5 Cols) -->
+                <div class="lg:col-span-5 bg-gray-900 border border-gray-800 p-8 rounded-3xl flex flex-col justify-between shadow-xl">
+                    <div>
+                        <span class="text-orange-500 font-bold text-xs uppercase tracking-wider block mb-2">Location & Service</span>
+                        <h2 class="text-3xl font-extrabold text-white mb-6">오시는 길 & 매장 디테일</h2>
+
+                        <!-- Info details -->
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="text-orange-500 text-lg mt-1"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-200 text-base">매장 위치 및 주소</h4>
+                                    <p class="text-gray-400 text-sm mt-1">서울 은평구 진흥로15길 24 1층</p>
+                                    <p class="text-xs text-orange-400 mt-1"><i class="fa-solid fa-train"></i> 불광역 1번 출구에서 단 206m (먹자골목 내)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="text-orange-500 text-lg mt-1"><i class="fa-solid fa-clock"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-200 text-base">영업 시간</h4>
+                                    <p class="text-gray-400 text-sm mt-1">매일 16:00 ~ 22:30 (휴무일 없음)</p>
+                                    <span class="inline-block mt-2 px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-500 text-xs font-semibold">금/주말 피크타임 웨이팅 발생 유의</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="text-orange-500 text-lg mt-1"><i class="fa-solid fa-phone"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-200 text-base">연락처</h4>
+                                    <p class="text-gray-400 text-sm mt-1">02-3157-8243</p>
+                                    <button onclick="copyToClipboard('02-3157-8243')" class="mt-2 text-xs text-gray-400 hover:text-white bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg border border-gray-700 transition-colors">
+                                        <i class="fa-regular fa-copy mr-1"></i> 번호 간편 복사하기
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="text-orange-500 text-lg mt-1"><i class="fa-solid fa-square-parking"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-200 text-base">주차 정보</h4>
+                                    <p class="text-gray-400 text-sm mt-1">매장 앞 전용 주차 공간 불가 (주변 유료 공영주차장 이용을 권장합니다)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 pt-6 border-t border-gray-800">
+                        <button onclick="openModal()" class="w-full py-4 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold tracking-wide transition-all duration-300">
+                            모임 / 예약 사전 상담하기
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mock Map Box (Right 7 Cols) -->
+                <div class="lg:col-span-7 bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden relative shadow-2xl flex flex-col justify-between p-2 min-h-[400px]">
+                    <!-- Map Mock Graphic using Tailwind/CSS shapes (Very responsive and clean design) -->
+                    <div class="flex-grow rounded-2xl relative overflow-hidden bg-gray-950 flex items-center justify-center border border-gray-800/80">
+                        <!-- Abstract Grid Overlay -->
+                        <div class="absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                        
+                        <!-- Symbolic Metro Route graphic -->
+                        <div class="absolute w-[80%] h-1 bg-amber-500/20 top-1/2 left-[10%] rotate-12 z-0"></div>
+                        <div class="absolute w-6 h-6 rounded-full bg-orange-600/30 border border-orange-500 top-[40%] left-[30%] z-10 flex items-center justify-center animate-pulse">
+                            <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+                        </div>
+                        <span class="absolute top-[32%] left-[28%] text-xs font-bold text-gray-400"><i class="fa-solid fa-train text-amber-500 mr-1"></i>불광역 1번 출구</span>
+
+                        <!-- Target Location Pin representation -->
+                        <div class="absolute top-1/2 left-[60%] -translate-x-1/2 -translate-y-1/2 text-center z-20">
+                            <!-- Glowing ring effect -->
+                            <div class="absolute -inset-4 w-16 h-16 rounded-full bg-red-600/30 blur-md animate-ping"></div>
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-orange-500 to-red-600 border-2 border-white/20 flex items-center justify-center shadow-2xl relative">
+                                <i class="fa-solid fa-fire text-white text-xl"></i>
+                            </div>
+                            <span class="block mt-2 font-black text-xs sm:text-sm text-white bg-gray-900 border border-gray-800 px-3 py-1 rounded-full shadow-lg">암사쪽갈비 불광점</span>
+                        </div>
+
+                        <!-- Route lines -->
+                        <div class="absolute w-28 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 top-[43%] left-[33%] rotate-[22deg] border-dashed border-gray-400 z-0"></div>
+                    </div>
+                    
+                    <div class="p-4 bg-gray-900 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <span class="text-xs sm:text-sm text-gray-400"><i class="fa-solid fa-circle-info text-orange-500 mr-1.5"></i>북한산 등산 후 하산길 불광역 1번 출구 먹자골목 200m에 최적의 위치</span>
+                        <div class="flex gap-2 w-full sm:w-auto">
+                            <a href="https://map.naver.com" target="_blank" class="flex-1 sm:flex-initial px-4 py-2 bg-gray-800 hover:bg-gray-700 text-xs text-white font-medium rounded-lg border border-gray-700 transition-colors">네이버 지도 바로가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-24 bg-gray-900/40 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest text-orange-500 font-bold">Frequently Asked Questions</span>
+                <h2 class="text-3xl font-extrabold text-white mt-2">자주 묻는 질문</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-gray-950 border border-gray-800 rounded-2xl p-6 transition-all duration-300">
+                    <button class="w-full text-left flex justify-between items-center" onclick="toggleFaq('faq1')">
+                        <span class="font-bold text-gray-200 text-base sm:text-lg">Q. 웨이팅은 보통 어느 정도 발생하며 사전 예약이 가능한가요?</span>
+                        <i id="faq1-icon" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq1-content" class="hidden mt-4 text-gray-400 text-sm leading-relaxed border-t border-gray-900 pt-4">
+                        금요일 저녁 및 주말에는 등산객들과 동네 단골손님들이 몰려 거의 대기(웨이팅)가 필수적으로 발생합니다. 사전 예약을 원하시는 고객님께서는 피크 시간대(오후 6시~8시)를 피해서 매장 연락처로 전화를 주시거나 간편 예약 문의 모달을 남겨주시면 자세히 상담해 드리고 있습니다.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-gray-950 border border-gray-800 rounded-2xl p-6 transition-all duration-300">
+                    <button class="w-full text-left flex justify-between items-center" onclick="toggleFaq('faq2')">
+                        <span class="font-bold text-gray-200 text-base sm:text-lg">Q. 포장 주문도 가능한가요? 포장 구성은 어떻게 되나요?</span>
+                        <i id="faq2-icon" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq2-content" class="hidden mt-4 text-gray-400 text-sm leading-relaxed border-t border-gray-900 pt-4">
+                        네, 쪽갈비 2인분 이상 주문 시 완벽히 포장하여 제공해 드리고 있습니다. 집이나 캠핑장에서도 그대로 간편하게 데우기만 해서 드실 수 있도록 초벌구이를 완벽히 해서 백김치 및 시그니처 디핑소스까지 세트로 알차게 포장해 드립니다.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-gray-950 border border-gray-800 rounded-2xl p-6 transition-all duration-300">
+                    <button class="w-full text-left flex justify-between items-center" onclick="toggleFaq('faq3')">
+                        <span class="font-bold text-gray-200 text-base sm:text-lg">Q. 매운쪽갈비는 신라면보다 매운가요? 맵기 조절이 되나요?</span>
+                        <i id="faq3-icon" class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq3-content" class="hidden mt-4 text-gray-400 text-sm leading-relaxed border-t border-gray-900 pt-4">
+                        매운쪽갈비는 제법 불칼칼한 정통 매운맛으로 신라면보다는 다소 강한 타격을 줍니다. 단, 인위적인 화학 조미료가 아닌 순수 고춧가루 기반이라 뒷맛이 매우 편하고 맛있게 맵습니다. 맵기가 약한 분들은 반드시 기본맛(쪽갈비)을 주문하시고 소스를 원하시는 만큼만 살짝 찍어드시는 방식을 권장합니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER AREA -->
+    <footer class="bg-gray-950 border-t border-gray-900 pt-16 pb-8 text-gray-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center border-b border-gray-900 pb-12 mb-8">
+                <!-- Branding -->
+                <div class="md:col-span-6 flex flex-col items-center sm:items-start">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-orange-600 to-red-600 flex items-center justify-center">
+                            <i class="fa-solid fa-fire text-white"></i>
+                        </div>
+                        <span class="text-xl font-black text-white tracking-wider">암사쪽갈비 불광점</span>
+                    </div>
+                    <p class="text-sm text-gray-400 max-w-sm">주민들과 산을 사랑하는 이들의 지친 입맛을 매콤달콤한 쪽갈비와 쫀득한 껍데기로 완벽히 달래는 불광역 찐 맛집.</p>
+                </div>
+
+                <!-- Badges -->
+                <div class="md:col-span-6 flex flex-wrap justify-center sm:justify-end gap-3 text-xs">
+                    <span class="px-3 py-1.5 rounded-full bg-gray-900 border border-gray-800 text-gray-400">#불광역대표맛집</span>
+                    <span class="px-3 py-1.5 rounded-full bg-gray-900 border border-gray-800 text-gray-400">#고품질프랑스산육</span>
+                    <span class="px-3 py-1.5 rounded-full bg-gray-900 border border-gray-800 text-gray-400">#고유가피해지원금가능</span>
+                    <span class="px-3 py-1.5 rounded-full bg-gray-900 border border-gray-800 text-gray-400">#껍데기서비스의원조</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-gray-600">
+                <p>&copy; 2026 암사쪽갈비 불광점. All Rights Reserved.</p>
+                <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-gray-400">이용약관</a>
+                    <a href="#" class="hover:text-gray-400">개인정보처리방침</a>
+                    <a href="#" class="hover:text-gray-400">소수점 제보</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- RESERVATION MODAL (No alert() constraint respected) -->
+    <div id="reservation-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-950/80 backdrop-blur-sm hidden transition-opacity duration-300">
+        <div class="bg-gray-900 border border-gray-800 rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-orange-600/20 text-orange-400 flex items-center justify-center mx-auto mb-3">
+                    <i class="fa-regular fa-calendar-check text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">매장 방문 및 예약 신청</h3>
+                <p class="text-gray-400 text-xs mt-1">간단한 정보를 기입하시면 담당자가 빠른 상담 연락을 드립니다.</p>
+            </div>
+
+            <form id="reservation-form" onsubmit="submitReservation(event)" class="space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5" for="form-name">예약자 성함</label>
+                    <input type="text" id="form-name" required placeholder="홍길동" class="w-full px-4 py-3 bg-gray-950 border border-gray-800 rounded-xl focus:outline-none focus:border-orange-500 text-white text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5" for="form-phone">연락처</label>
+                    <input type="tel" id="form-phone" required placeholder="010-1234-5678" class="w-full px-4 py-3 bg-gray-950 border border-gray-800 rounded-xl focus:outline-none focus:border-orange-500 text-white text-sm">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5" for="form-people">방문 인원</label>
+                        <select id="form-people" class="w-full px-4 py-3 bg-gray-950 border border-gray-800 rounded-xl focus:outline-none focus:border-orange-500 text-white text-sm">
+                            <option value="2">2명</option>
+                            <option value="3">3명</option>
+                            <option value="4">4명 (추천)</option>
+                            <option value="5">5~10명 단체</option>
+                            <option value="10">10명 이상</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5" for="form-date">방문 날짜</label>
+                        <input type="date" id="form-date" required class="w-full px-4 py-3 bg-gray-950 border border-gray-800 rounded-xl focus:outline-none focus:border-orange-500 text-white text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5" for="form-request">선택 요구 사항 (옵션)</label>
+                    <textarea id="form-request" rows="2" placeholder="예: '계산기 견적 구성을 우선 적용해주세요' 또는 특별 요청사항" class="w-full px-4 py-3 bg-gray-950 border border-gray-800 rounded-xl focus:outline-none focus:border-orange-500 text-white text-sm resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 mt-2 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold transition-all duration-300">
+                    신청서 보내기
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER (Beautiful Toast Alerts instead of alerts) -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // Menu Pricing Configuration
+        const PRICES = {
+            jok: 18000,
+            spicy: 18000,
+            skin: 7000,
+            jjigae: 7000
+        };
+
+        // Quantities state
+        let cart = {
+            jok: 0,
+            spicy: 0,
+            skin: 0,
+            jjigae: 0
+        };
+
+        // Initialize elements on load
+        window.onload = function() {
+            // Set current date on Reservation Modal as default
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('form-date').value = today;
+
+            // Handle Mobile Menu toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Sync estimates on startup
+            updateEstimates();
+        };
+
+        // Live Quantity adjustment
+        function changeQty(key, delta) {
+            cart[key] = Math.max(0, cart[key] + delta);
+            
+            // Sync calculator values
+            document.getElementById(`qty-${key}`).innerText = cart[key];
+            updateEstimates();
+        }
+
+        // Reset the smart calculator
+        function resetCalculator() {
+            cart = { jok: 0, spicy: 0, skin: 0, jjigae: 0 };
+            for (let key in cart) {
+                document.getElementById(`qty-${key}`).innerText = 0;
+            }
+            updateEstimates();
+            showToast('계산기 수량이 초기화되었습니다.', 'info');
+        }
+
+        // Calculations & Promotional Logic
+        function updateEstimates() {
+            const jokQty = cart.jok;
+            const spicyQty = cart.spicy;
+            const skinQty = cart.skin;
+            const jjigaeQty = cart.jjigae;
+
+            // Calculate Weight (350g per meat dish, 150g per skin)
+            const meatQty = jokQty + spicyQty;
+            const totalWeight = (meatQty * 350) + (skinQty * 150);
+            document.getElementById('total-weight').innerText = `${totalWeight.toLocaleString()}g`;
+
+            // Calculate Base Price
+            let basePrice = (jokQty * PRICES.jok) + (spicyQty * PRICES.spicy) + (skinQty * PRICES.skin) + (jjigaeQty * PRICES.jjigae);
+            document.getElementById('total-price').innerText = `${basePrice.toLocaleString()}원`;
+
+            // Promotional Active Elements
+            const bonusEggLi = document.getElementById('bonus-egg');
+            const bonusSkinLi = document.getElementById('bonus-skin');
+            const bonusVeggieLi = document.getElementById('bonus-veggie');
+
+            const statusEgg = document.getElementById('status-egg');
+            const statusSkin = document.getElementById('status-skin');
+            const statusVeggie = document.getElementById('status-veggie');
+
+            // Threshold: If any meat order is present, give basic side layout
+            if (meatQty >= 1) {
+                bonusVeggieLi.classList.remove('opacity-50');
+                statusVeggie.innerText = "제공 활성!";
+                statusVeggie.className = "text-orange-500 font-bold";
+            } else {
+                bonusVeggieLi.classList.add('opacity-50');
+                statusVeggie.innerText = "비활성 (주문필요)";
+                statusVeggie.className = "text-gray-500 font-medium";
+            }
+
+            // Threshold: If 2 or more meat portions are selected, trigger Egg Stew & Tasting skin!
+            if (meatQty >= 2) {
+                bonusEggLi.classList.remove('opacity-50');
+                statusEgg.innerText = "무료 증정!";
+                statusEgg.className = "text-emerald-500 font-bold";
+
+                bonusSkinLi.classList.remove('opacity-50');
+                statusSkin.innerText = "무료 증정!";
+                statusSkin.className = "text-emerald-500 font-bold";
+            } else {
+                bonusEggLi.classList.add('opacity-50');
+                statusEgg.innerText = "비활성 (주문필요)";
+                statusEgg.className = "text-gray-500 font-medium";
+
+                bonusSkinLi.classList.add('opacity-50');
+                statusSkin.innerText = "비활성 (주문필요)";
+                statusSkin.className = "text-gray-500 font-medium";
+            }
+        }
+
+        // Bridge chosen quantities to Reservation Request Modal text area
+        function requestWithEstimates() {
+            const lines = [];
+            if (cart.jok > 0) lines.push(`기본 쪽갈비: ${cart.jok}인분`);
+            if (cart.spicy > 0) lines.push(`매운 쪽갈비: ${cart.spicy}인분`);
+            if (cart.skin > 0) lines.push(`돼지껍데기: ${cart.skin}인분`);
+            if (cart.jjigae > 0) lines.push(`김치짜글이: ${cart.jjigae}인분`);
+
+            const requestArea = document.getElementById('form-request');
+            if (lines.length > 0) {
+                const totalText = lines.join(', ');
+                requestArea.value = `[계산기 예상 견적 주문] ${totalText} (총 금액: ${document.getElementById('total-price').innerText})`;
+            } else {
+                requestArea.value = "계산기 선택 내역 없음 (인원수에 맞는 테이블 구성을 상담해 주세요)";
+            }
+
+            openModal();
+        }
+
+        // Clipboard Copy Helper (Standard execCommand to avoid restriction anomalies inside iframe)
+        function copyToClipboard(text) {
+            const input = document.createElement('textarea');
+            input.value = text;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            showToast('전화번호가 클립보드에 복사되었습니다.', 'success');
+        }
+
+        // FAQ Toggle Logic
+        function toggleFaq(id) {
+            const content = document.getElementById(`${id}-content`);
+            const icon = document.getElementById(`${id}-icon`);
+            if (content && icon) {
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            }
+        }
+
+        // Modal Open/Close Controls with simple animations
+        function openModal() {
+            const modal = document.getElementById('reservation-modal');
+            const content = document.getElementById('modal-content');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('reservation-modal');
+            const content = document.getElementById('modal-content');
+            modal.classList.remove('opacity-100');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Submit Reservation (Simulated database submission)
+        function submitReservation(event) {
+            event.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const date = document.getElementById('form-date').value;
+            const people = document.getElementById('form-people').value;
+
+            // Render highly professional custom toast instead of alert()
+            showToast(`축하합니다! ${name}님, ${date} 일자 (${people}명) 예약 문의 신청이 정상 접수되었습니다. 곧 연락해 드리겠습니다!`, 'success');
+            
+            // Clean up
+            document.getElementById('reservation-form').reset();
+            closeModal();
+        }
+
+        // Toast Notification System
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = "flex items-center gap-3 p-4 rounded-xl text-sm font-semibold text-white shadow-2xl transition-all duration-300 transform translate-y-2 opacity-0 pointer-events-auto border";
+            
+            if (type === 'success') {
+                toast.classList.add('bg-emerald-950', 'border-emerald-500', 'text-emerald-200');
+                toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i> <span>${message}</span>`;
+            } else if (type === 'error') {
+                toast.classList.add('bg-red-950', 'border-red-500', 'text-red-200');
+                toast.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-red-400 text-lg"></i> <span>${message}</span>`;
+            } else {
+                toast.classList.add('bg-gray-900', 'border-gray-800', 'text-gray-300');
+                toast.innerHTML = `<i class="fa-solid fa-circle-info text-orange-400 text-lg"></i> <span>${message}</span>`;
+            }
+
+            container.appendChild(toast);
+
+            // Animate In
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            // Dismiss Timer
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 4500);
+        }
+    </script>
+</body>
+</html>
